@@ -1,4 +1,5 @@
 const NextFederationPlugin = require("@module-federation/nextjs-mf");
+const path = require("path");
 
 // this enables you to use import() and the webpack parser
 // loading remotes on demand, not ideal for SSR
@@ -10,6 +11,10 @@ const remotes = (isServer) => {
 };
 
 module.exports = {
+  output: "standalone",
+  experimental: {
+    outputFileTracingRoot: path.join(__dirname, "../../"),
+  },
   webpack(config, options) {
     config.plugins.push(
       new NextFederationPlugin({

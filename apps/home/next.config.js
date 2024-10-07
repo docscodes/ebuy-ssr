@@ -1,4 +1,5 @@
 const NextFederationPlugin = require("@module-federation/nextjs-mf");
+const path = require("path");
 
 const remotes = (isServer) => {
   const location = isServer ? "ssr" : "chunks";
@@ -9,6 +10,10 @@ const remotes = (isServer) => {
 };
 
 module.exports = {
+  output: "standalone",
+  experimental: {
+    outputFileTracingRoot: path.join(__dirname, "../../"),
+  },
   webpack(config, options) {
     config.plugins.push(
       new NextFederationPlugin({
