@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: home
+  name: catalog
   namespace: default
   labels:
-    app: home
+    app: catalog
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: home
+      app: catalog
   template:
     metadata:
       labels:
-        app: home
+        app: catalog
     spec:
       containers:
-        - name: home
-          image: demosapps/ebuy-home:latest
+        - name: catalog
+          image: demosapps/ebuy-catalog:latest
           imagePullPolicy: Always
           ports:
             - name: http

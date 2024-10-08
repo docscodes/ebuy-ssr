@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: home
+  name: checkout
   namespace: default
   labels:
-    app: home
+    app: checkout
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: home
+      app: checkout
   template:
     metadata:
       labels:
-        app: home
+        app: checkout
     spec:
       containers:
-        - name: home
-          image: demosapps/ebuy-home:latest
+        - name: checkout
+          image: demosapps/ebuy-checkout:latest
           imagePullPolicy: Always
           ports:
             - name: http
