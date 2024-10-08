@@ -1,7 +1,7 @@
 export default function Web() {
   return (
     <div>
-      <h1>Web</h1>
+      <h1>Trigger workflow</h1>
     </div>
   );
 }
